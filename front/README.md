@@ -1,57 +1,84 @@
-# GrispeApp Confeitaria
+# GrispeApp
 
-Aplicativo mobile para gestão de estoque, fichas técnicas de receitas, pedidos e
-fluxo de caixa de uma confeitaria artesanal. A solução segue o artigo do TCC:
-React Native com Expo Go no aplicativo, API REST em Node.js/Express e MySQL.
+Aplicativo mobile para gestão de uma confeitaria artesanal. O app usa
+React Native com Expo Go e consome a API REST Node.js do diretório
+[`../backend`](../backend).
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Testar no Expo Go
 
-## Executar o aplicativo
+### 1. Pré-requisitos
 
-1. Install dependencies
+- Node.js instalado;
+- MySQL instalado e em execução;
+- Expo Go instalado no celular;
+- computador e celular conectados à mesma rede Wi-Fi.
 
-   ```bash
-   npm install
-   ```
+### 2. Preparar o banco e a API
 
-2. Inicie o app
+No MySQL, execute [`../backend/schema.sql`](../backend/schema.sql). Depois crie
+`backend/.env` a partir de [`../backend/.env.example`](../backend/.env.example)
+e informe a senha do MySQL.
 
-   ```bash
-   npx expo start
-   ```
+Em um terminal:
 
-Configure `EXPO_PUBLIC_API_URL` para o endereço da API quando o dispositivo
-estiver em outra máquina (por exemplo, `http://192.168.0.10:8081`).
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```powershell
+cd "C:\Users\peant\OneDrive\Documentos\coisas pedro\Faculdade\Projeto TCC\GrispeApp\backend"
+npm install
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Teste no navegador do computador: `http://localhost:8081/health`. A resposta
+esperada é `{"status":"ok"}`.
 
-## Learn more
+### 3. Configurar o IP para o celular
 
-To learn more about developing your project with Expo, look at the following resources:
+Descubra o IPv4 do computador executando `ipconfig` no PowerShell. Use o
+endereço da placa que está conectada à mesma rede do celular, por exemplo
+`192.168.0.10`.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Na pasta `front`, copie `.env.example` para `.env.local` e altere:
 
-## Join the community
+```env
+EXPO_PUBLIC_API_URL=http://192.168.0.10:8081
+```
 
-Join our community of developers creating universal apps.
+O endereço é configurado somente em
+[`front/.env.local`](./.env.local), que não deve ser commitado. O arquivo
+[`front/service/api.js`](./service/api.js) lê essa variável e centraliza todas
+as chamadas para a API.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 4. Abrir no Expo Go
+
+Em outro terminal:
+
+```powershell
+cd "C:\Users\peant\OneDrive\Documentos\coisas pedro\Faculdade\Projeto TCC\GrispeApp\front"
+npm install
+npx expo start --clear
+```
+
+Escaneie o QR Code com o Expo Go. Se a conexão LAN não funcionar, execute
+`npx expo start --tunnel`.
+
+## Organização do projeto
+
+- `app/login.tsx`: login e cadastro.
+- `app/(tabs)/estoque.tsx`: ingredientes, níveis mínimos e movimentações.
+- `app/(tabs)/receitas.tsx`: fichas técnicas e ingredientes por receita.
+- `app/(tabs)/pedidos.tsx`: pedidos, status, cálculo de custo e baixa de estoque.
+- `app/(tabs)/financeiro.tsx`: receitas, despesas, fluxo de caixa e CMV.
+- `app/(tabs)/_layout.tsx`: navegação entre os módulos.
+- `service/api.js`: cliente HTTP usado pelo app.
+- `lib/app-theme.tsx`: tema claro/escuro persistido localmente.
+- `backend/src/server.ts`: rotas e regras da API.
+- `backend/src/db.ts`: conexão com MySQL.
+- `backend/schema.sql`: tabelas do sistema.
+
+## Fluxo principal
+
+O usuário cria uma conta ou entra. Ingredientes são cadastrados com unidade,
+quantidade, estoque mínimo e custo unitário. As receitas relacionam os
+ingredientes e suas quantidades. Ao registrar um pedido, a API calcula o custo
+com base na ficha técnica, verifica o estoque, baixa os insumos em uma
+transação e registra a receita financeira. O financeiro calcula o CMV usando o
+custo e o valor dos pedidos.
