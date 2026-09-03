@@ -74,12 +74,12 @@ function RootLayoutContent() {
     function redirect(notification: Notifications.Notification) {
       const url = notification.request.content.data?.url;
 
-      if (url === '/meus-registros') {
-        router.push('/meus-registros');
+      if (url === '/financeiro') {
+        router.push('/financeiro');
       }
 
-      if (url === '/registros') {
-        router.push('/registros');
+      if (url === '/receitas') {
+        router.push('/receitas');
       }
     }
 

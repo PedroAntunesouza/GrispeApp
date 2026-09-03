@@ -1,5 +1,5 @@
 {
-  "name": "front",
+  "name": "grispeapp-confeitaria",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
@@ -51,3 +51,4 @@
   },
   "private": true
 }
+
