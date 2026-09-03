@@ -34,27 +34,6 @@
     "plugins": [
       "expo-router",
       [
-        "expo-notifications",
-        {
-          "color": "#0F766E",
-          "defaultChannel": "confeitaria-alertas"
-        }
-      ],
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "Permita que o GrispeApp acesse a camera para registrar documentos e fotos da confeitaria.",
-          "microphonePermission": "Permita que o GrispeApp acesse o microfone.",
-          "recordAudioAndroid": false
-        }
-      ],
-      [
-        "expo-location",
-        {
-          "locationWhenInUsePermission": "Permita que o GrispeApp acesse sua localizacao para controlar produção e pedidos."
-        }
-      ],
-      [
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",
@@ -73,4 +52,3 @@
     }
   }
 }
-

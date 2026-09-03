@@ -1,4 +1,4 @@
-const BASE_URL = 'http://192.168.1.138:8081';
+const BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:8081';
 
 async function request(path, options = {}) {
   const response = await fetch(`${BASE_URL}${path}`, {
@@ -10,7 +10,14 @@ async function request(path, options = {}) {
   });
 
   const text = await response.text();
-  const body = text ? JSON.parse(text) : null;
+  let body = null;
+  if (text) {
+    try {
+      body = JSON.parse(text);
+    } catch {
+      body = text;
+    }
+  }
 
   if (!response.ok) {
     const errorMessage = body?.message || body || text || response.statusText;

@@ -1,8 +1,12 @@
-# Welcome to your Expo app 👋
+# GrispeApp Confeitaria
+
+Aplicativo mobile para gestão de estoque, fichas técnicas de receitas, pedidos e
+fluxo de caixa de uma confeitaria artesanal. A solução segue o artigo do TCC:
+React Native com Expo Go no aplicativo, API REST em Node.js/Express e MySQL.
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+## Executar o aplicativo
 
 1. Install dependencies
 
@@ -10,11 +14,14 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npm install
    ```
 
-2. Start the app
+2. Inicie o app
 
    ```bash
    npx expo start
    ```
+
+Configure `EXPO_PUBLIC_API_URL` para o endereço da API quando o dispositivo
+estiver em outra máquina (por exemplo, `http://192.168.0.10:8081`).
 
 In the output, you'll find options to open the app in a
 

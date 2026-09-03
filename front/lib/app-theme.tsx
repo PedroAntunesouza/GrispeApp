@@ -9,7 +9,7 @@ type AppThemeContextValue = {
   toggleTheme: () => void;
 };
 
-const THEME_STORAGE_KEY = '@ruasegura:theme-mode';
+const THEME_STORAGE_KEY = '@grispeapp:theme-mode';
 
 const AppThemeContext = createContext<AppThemeContextValue | null>(null);
 
