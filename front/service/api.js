@@ -27,20 +27,6 @@ async function request(path, options = {}) {
   return body;
 }
 
-export async function createUser(user) {
-  return request('/user/create', {
-    method: 'POST',
-    body: JSON.stringify(user),
-  });
-}
-
-export async function loginUser(user) {
-  return request('/user/login', {
-    method: 'POST',
-    body: JSON.stringify(user),
-  });
-}
-
 export async function fetchDashboard() {
   return request('/api/dashboard', { method: 'GET' });
 }
@@ -103,8 +89,6 @@ export async function createLancamento(payload) {
 }
 
 export default {
-  createUser,
-  loginUser,
   fetchDashboard,
   fetchIngredientes,
   createIngrediente,

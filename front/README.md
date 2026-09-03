@@ -62,7 +62,7 @@ Escaneie o QR Code com o Expo Go. Se a conexão LAN não funcionar, execute
 
 ## Organização do projeto
 
-- `app/login.tsx`: login e cadastro.
+- `app/index.tsx`: entrada direta no aplicativo.
 - `app/(tabs)/estoque.tsx`: ingredientes, níveis mínimos e movimentações.
 - `app/(tabs)/receitas.tsx`: fichas técnicas e ingredientes por receita.
 - `app/(tabs)/pedidos.tsx`: pedidos, status, cálculo de custo e baixa de estoque.

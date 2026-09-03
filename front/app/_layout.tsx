@@ -52,14 +52,13 @@ function RootLayoutContent() {
   }, [keepAndroidNavigationBarHidden]);
 
   useEffect(() => {
-    SystemUI.setBackgroundColorAsync(isDark ? '#0F172A' : '#F4F7F6');
+    SystemUI.setBackgroundColorAsync(isDark ? '#2A2430' : '#FFF7FF');
   }, [isDark]);
 
   return (
     <ThemeProvider value={isDark ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style={isDark ? 'light' : 'dark'} />

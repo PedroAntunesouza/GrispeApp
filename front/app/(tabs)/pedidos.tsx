@@ -200,10 +200,10 @@ export default function PedidosScreen() {
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: '#F4F7F6' },
+  safeArea: { flex: 1, backgroundColor: '#FFF7FF' },
   container: { padding: 20, paddingBottom: 80 },
-  title: { color: '#111827', fontSize: 28, fontWeight: '800', marginBottom: 4 },
-  subtitle: { color: '#64748B', fontSize: 15, marginBottom: 18 },
+  title: { color: '#332D36', fontSize: 28, fontWeight: '800', marginBottom: 4 },
+  subtitle: { color: '#777078', fontSize: 15, marginBottom: 18 },
   formCard: { backgroundColor: '#FFFFFF', borderRadius: 14, padding: 16, marginBottom: 18 },
   input: {
     backgroundColor: '#F8FAFC',
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   secondaryButtonText: { color: '#0F172A', fontWeight: '700' },
   primaryButton: {
     alignItems: 'center',
-    backgroundColor: '#0F766E',
+    backgroundColor: '#6B52A3',
     borderRadius: 10,
     paddingVertical: 12,
   },

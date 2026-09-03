@@ -12,12 +12,12 @@ export default function MainTabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: isDark ? '#5EEAD4' : '#0F766E',
-        tabBarInactiveTintColor: isDark ? '#94A3B8' : '#64748B',
+        tabBarActiveTintColor: isDark ? '#C9B6E4' : '#6B52A3',
+        tabBarInactiveTintColor: isDark ? '#C8BFC9' : '#777078',
         tabBarStyle: {
-          backgroundColor: isDark ? '#0F172A' : '#FFFFFF',
-          borderTopColor: isDark ? '#334155' : '#D8E3DF',
-          height: 54 + bottomInset,
+          backgroundColor: isDark ? '#2A2430' : '#FFF7FF',
+          borderTopColor: isDark ? '#554A5B' : '#D6CDD6',
+          height: 58 + bottomInset,
           paddingBottom: bottomInset,
           paddingTop: 8,
         },
@@ -38,9 +38,9 @@ export default function MainTabsLayout() {
       <Tabs.Screen
         name="receitas"
         options={{
-          title: 'Receitas',
+          title: 'Doces',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons color={color} name="restaurant-outline" size={size} />
+            <Ionicons color={color} name="ice-cream-outline" size={size} />
           ),
         }}
       />
@@ -59,6 +59,15 @@ export default function MainTabsLayout() {
           title: 'Financeiro',
           tabBarIcon: ({ color, size }) => (
             <Ionicons color={color} name="cash-outline" size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="agenda"
+        options={{
+          title: 'Agenda',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons color={color} name="calendar-outline" size={size} />
           ),
         }}
       />

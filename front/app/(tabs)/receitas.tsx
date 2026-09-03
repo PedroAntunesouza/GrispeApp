@@ -99,8 +99,8 @@ export default function ReceitasScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Receitas</Text>
-        <Text style={styles.subtitle}>Ficha técnica e consumo de insumos por produção.</Text>
+        <Text style={styles.title}>Doces e receitas</Text>
+        <Text style={styles.subtitle}>Cadastre doces e suas fichas técnicas.</Text>
 
         <View style={styles.formCard}>
           <TextInput
@@ -172,17 +172,17 @@ export default function ReceitasScreen() {
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: '#F4F7F6' },
+  safeArea: { flex: 1, backgroundColor: '#FFF7FF' },
   container: { padding: 20, paddingBottom: 80 },
-  title: { color: '#111827', fontSize: 28, fontWeight: '800', marginBottom: 4 },
-  subtitle: { color: '#64748B', fontSize: 15, marginBottom: 18 },
-  formCard: { backgroundColor: '#FFFFFF', borderRadius: 14, padding: 16, marginBottom: 18 },
+  title: { color: '#332D36', fontSize: 28, fontWeight: '800', marginBottom: 4 },
+  subtitle: { color: '#777078', fontSize: 15, marginBottom: 18 },
+  formCard: { backgroundColor: '#FFFFFF', borderColor: '#8D878D', borderRadius: 14, borderWidth: 1, padding: 16, marginBottom: 18 },
   input: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#E2E8F0',
+    backgroundColor: '#FFF7FF',
+    borderColor: '#8D878D',
     borderRadius: 10,
     borderWidth: 1,
-    color: '#111827',
+    color: '#332D36',
     marginBottom: 12,
     paddingHorizontal: 12,
     paddingVertical: 12,
@@ -195,23 +195,23 @@ const styles = StyleSheet.create({
   smallInput: { width: 88 },
   secondaryButton: {
     alignItems: 'center',
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#E5E1E5',
     borderRadius: 10,
     marginBottom: 12,
     paddingVertical: 12,
   },
-  secondaryButtonText: { color: '#0F172A', fontWeight: '700' },
+  secondaryButtonText: { color: '#6B52A3', fontWeight: '700' },
   primaryButton: {
     alignItems: 'center',
-    backgroundColor: '#0F766E',
+    backgroundColor: '#6B52A3',
     borderRadius: 10,
     paddingVertical: 12,
   },
   primaryButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '800' },
   list: { gap: 12 },
-  card: { backgroundColor: '#FFFFFF', borderRadius: 14, padding: 16 },
-  cardTitle: { color: '#111827', fontSize: 18, fontWeight: '800', marginBottom: 6 },
-  cardDescription: { color: '#64748B', fontSize: 14, marginBottom: 10 },
+  card: { backgroundColor: '#E5E1E5', borderColor: '#8D878D', borderRadius: 14, borderWidth: 1, padding: 16 },
+  cardTitle: { color: '#332D36', fontSize: 18, fontWeight: '800', marginBottom: 6 },
+  cardDescription: { color: '#777078', fontSize: 14, marginBottom: 10 },
   ingredientList: { gap: 6 },
-  ingredientText: { color: '#334155', fontSize: 14 },
+  ingredientText: { color: '#332D36', fontSize: 14 },
 });

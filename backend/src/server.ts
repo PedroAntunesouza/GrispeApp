@@ -1,5 +1,4 @@
 import 'dotenv/config';
-import bcrypt from 'bcryptjs';
 import cors from 'cors';
 import express, { type NextFunction, type Request, type Response } from 'express';
 import type { ResultSetHeader, RowDataPacket } from 'mysql2';
@@ -15,42 +14,6 @@ const asyncRoute = (handler: (req: Request, res: Response) => Promise<void>) =>
   };
 
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
-
-app.post('/user/create', asyncRoute(async (req, res) => {
-  const { name, nome, email, senha } = req.body as Record<string, string>;
-  if (!(name ?? nome)?.trim() || !email?.trim() || !senha?.trim()) {
-    res.status(400).json({ message: 'Nome, e-mail e senha são obrigatórios.' });
-    return;
-  }
-  const passwordHash = await bcrypt.hash(senha, 10);
-  try {
-    const [result] = await pool.execute<ResultSetHeader>(
-      'INSERT INTO usuario (nome, email, senha, papel) VALUES (?, ?, ?, ?)',
-      [(name ?? nome).trim(), email.trim().toLowerCase(), passwordHash, 'ADMIN'],
-    );
-    res.status(201).json({ id: result.insertId, name: (name ?? nome).trim(), email: email.trim().toLowerCase(), papel: 'ADMIN' });
-  } catch (error) {
-    if ((error as { code?: string }).code === 'ER_DUP_ENTRY') {
-      res.status(409).json({ message: 'Este e-mail já está cadastrado.' });
-      return;
-    }
-    throw error;
-  }
-}));
-
-app.post('/user/login', asyncRoute(async (req, res) => {
-  const { email, senha } = req.body as Record<string, string>;
-  const [rows] = await pool.execute<RowDataPacket[]>(
-    'SELECT id, nome, email, senha, papel FROM usuario WHERE email = ? LIMIT 1',
-    [email?.trim().toLowerCase()],
-  );
-  const user = rows[0];
-  if (!user || !senha || !(await bcrypt.compare(senha, user.senha))) {
-    res.status(401).json({ message: 'E-mail ou senha inválidos.' });
-    return;
-  }
-  res.json({ user: { id: user.id, name: user.nome, email: user.email, papel: user.papel } });
-}));
 
 app.get('/api/ingredientes', asyncRoute(async (_req, res) => {
   const [rows] = await pool.query('SELECT id, nome, unidade_medida AS unidadeMedida, quantidade_atual AS quantidadeAtual, estoque_minimo AS estoqueMinimo, preco_unitario AS precoUnitario FROM ingrediente WHERE ativo = 1 ORDER BY nome');

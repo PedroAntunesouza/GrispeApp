@@ -10,7 +10,7 @@ npm run build
 npm start
 ```
 
-Os módulos implementados seguem o artigo: usuários, ingredientes e
-movimentações auditadas, receitas com ficha técnica, pedidos com baixa
+Os módulos implementados seguem o artigo: ingredientes e movimentações
+auditadas, receitas com ficha técnica, pedidos com baixa
 automática de estoque e lançamento de receita, além do painel financeiro com
 CMV e alertas para as faixas de 25% e 30%.
