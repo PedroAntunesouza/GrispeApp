@@ -1,0 +1,16 @@
+{
+  "name": "grispeapp",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "front",
+    "backend"
+  ],
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "start:app": "npm run start --workspace front",
+    "start:api": "npm run start --workspace backend",
+    "build:api": "npm run build --workspace backend",
+    "lint:app": "npm run lint --workspace front"
+  }
+}
