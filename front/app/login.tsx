@@ -50,7 +50,7 @@ export default function LoginScreen() {
       }
 
       const user = response?.user ?? response;
-      const storedName = user?.name ?? user?.nome ?? nome.trim() || 'Usuário';
+      const storedName = user?.name ?? user?.nome ?? (nome.trim() || 'Usuário');
       await AsyncStorage.setItem(CURRENT_USER_KEY, storedName);
       await AsyncStorage.setItem(CURRENT_USER_EMAIL_KEY, cleanedEmail);
       router.replace('/(tabs)/estoque');
