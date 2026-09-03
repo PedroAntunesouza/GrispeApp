@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "install:all": "npm install --workspaces",
+    "start": "npm run start --workspace front",
     "start:app": "npm run start --workspace front",
     "start:api": "npm run start --workspace backend",
     "build:api": "npm run build --workspace backend",

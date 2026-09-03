@@ -1,3 +1,6 @@
 node_modules/
+.expo/
+dist/
+tsconfig.json
 .env
 .env.local
