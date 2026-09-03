@@ -27,38 +27,38 @@ export default function MainTabsLayout() {
         },
       }}>
       <Tabs.Screen
-        name="registrar-avaria"
+        name="estoque"
         options={{
-          title: 'Registrar',
+          title: 'Estoque',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons color={color} name="home-outline" size={size} />
+            <Ionicons color={color} name="cube-outline" size={size} />
           ),
         }}
       />
       <Tabs.Screen
-        name="registros"
+        name="receitas"
         options={{
-          title: 'Registros',
+          title: 'Receitas',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons color={color} name="list-outline" size={size} />
+            <Ionicons color={color} name="restaurant-outline" size={size} />
           ),
         }}
       />
       <Tabs.Screen
-        name="mapa-detalhado"
+        name="pedidos"
         options={{
-          title: 'Mapa detalhado',
+          title: 'Pedidos',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons color={color} name="map-outline" size={size} />
+            <Ionicons color={color} name="receipt-outline" size={size} />
           ),
         }}
       />
       <Tabs.Screen
-        name="meus-registros"
+        name="financeiro"
         options={{
-          title: 'Meu perfil',
+          title: 'Financeiro',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons color={color} name="person-outline" size={size} />
+            <Ionicons color={color} name="cash-outline" size={size} />
           ),
         }}
       />

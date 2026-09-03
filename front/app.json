@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "front",
-    "slug": "front",
+    "name": "GrispeApp Confeitaria",
+    "slug": "grispeapp-confeitaria",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "front",
+    "scheme": "grispeapp-confeitaria",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -37,21 +37,21 @@
         "expo-notifications",
         {
           "color": "#0F766E",
-          "defaultChannel": "registros-alertas"
+          "defaultChannel": "confeitaria-alertas"
         }
       ],
       [
         "expo-camera",
         {
-          "cameraPermission": "Permita que o RuaSegura acesse a camera para registrar avarias.",
-          "microphonePermission": "Permita que o RuaSegura acesse o microfone.",
+          "cameraPermission": "Permita que o GrispeApp acesse a camera para registrar documentos e fotos da confeitaria.",
+          "microphonePermission": "Permita que o GrispeApp acesse o microfone.",
           "recordAudioAndroid": false
         }
       ],
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Permita que o RuaSegura acesse sua localizacao para marcar avarias no mapa."
+          "locationWhenInUsePermission": "Permita que o GrispeApp acesse sua localizacao para controlar produção e pedidos."
         }
       ],
       [
@@ -73,3 +73,4 @@
     }
   }
 }
+
