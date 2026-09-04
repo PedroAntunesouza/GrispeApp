@@ -18,8 +18,6 @@ function RootLayoutContent() {
     }
 
     try {
-      await NavigationBar.setPositionAsync('absolute');
-      await NavigationBar.setBehaviorAsync('overlay-swipe');
       await NavigationBar.setVisibilityAsync('hidden');
     } catch {
       // Some Android navigation modes ignore programmatic visibility changes.
